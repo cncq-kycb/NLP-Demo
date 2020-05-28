@@ -73,6 +73,7 @@ public class UserServiceImpl implements UserService {
 		try {
 			RecordExample recordExample = new RecordExample();
 			recordExample.or();
+			recordExample.setOrderByClause("record_time DESC");
 			List<RecordWithBLOBs> recordWithBLOBs = recordMapper.selectByExampleWithBLOBs(recordExample);
 			if (recordWithBLOBs.size() != 0) {
 				return new MyJson(recordWithBLOBs);
